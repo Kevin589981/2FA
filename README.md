@@ -58,6 +58,17 @@ cd d:\Code\Python\2FA
 .\.venv\Scripts\python.exe .\demo.py check --code 123456
 ```
 
+## 不使用 pyotp 的版本（从头实现）
+
+同样的流程，但 TOTP/HOTP/Base32/otpauth URI 都是手写实现，脚本是 [demo_from_scratch.py](demo_from_scratch.py)。
+
+```powershell
+.\.venv\Scripts\python.exe .\demo_from_scratch.py init
+.\.venv\Scripts\python.exe .\demo_from_scratch.py scan
+.\.venv\Scripts\python.exe .\demo_from_scratch.py check
+.\.venv\Scripts\python.exe .\demo_from_scratch.py verify
+```
+
 ## 备注
 
 - TOTP 本质：$\text{TOTP} = \text{HOTP}(K, T)$，其中 $T = \lfloor (\text{unixTime} - T_0) / X \rfloor$。
